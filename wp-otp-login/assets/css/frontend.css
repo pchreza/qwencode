@@ -1,6 +1,60 @@
 /**
  * Frontend Styles for OTP Login Forms
+ * RTL Support with Vazir Font
  */
+
+/* Import Vazir Font from local assets */
+@font-face {
+    font-family: 'Vazir';
+    src: url('../fonts/Vazir.eot');
+    src: url('../fonts/Vazir.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Vazir.woff2') format('woff2'),
+         url('../fonts/Vazir.woff') format('woff'),
+         url('../fonts/Vazir.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('../fonts/Vazir-Bold.eot');
+    src: url('../fonts/Vazir-Bold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Vazir-Bold.woff2') format('woff2'),
+         url('../fonts/Vazir-Bold.woff') format('woff'),
+         url('../fonts/Vazir-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('../fonts/Vazir-Light.eot');
+    src: url('../fonts/Vazir-Light.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Vazir-Light.woff2') format('woff2'),
+         url('../fonts/Vazir-Light.woff') format('woff'),
+         url('../fonts/Vazir-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* Apply Vazir Font to all plugin elements */
+.wp-otp-login-form,
+.wp-otp-register-form,
+.wp-otp-user-info,
+.wp-otp-input-field,
+.wp-otp-button,
+.wp-otp-form-title,
+.wp-otp-message,
+.wp-otp-resend {
+    font-family: 'Vazir', Tahoma, sans-serif !important;
+}
+
+/* RTL Direction */
+.wp-otp-login-form,
+.wp-otp-register-form {
+    direction: rtl;
+    text-align: right;
+}
 
 .wp-otp-login-form,
 .wp-otp-register-form {
@@ -15,6 +69,7 @@
     margin-bottom: 20px;
     font-size: 24px;
     color: #333;
+    font-weight: bold;
 }
 
 .wp-otp-input-group {
@@ -32,6 +87,9 @@
     border-radius: 5px;
     font-size: 16px;
     transition: border-color 0.3s ease;
+    direction: rtl;
+    text-align: right;
+    font-family: 'Vazir', Tahoma, sans-serif !important;
 }
 
 .wp-otp-input-group input:focus {
@@ -49,6 +107,7 @@
     font-size: 16px;
     transition: background-color 0.3s ease;
     white-space: nowrap;
+    font-family: 'Vazir', Tahoma, sans-serif !important;
 }
 
 .wp-otp-button:hover:not(:disabled) {
@@ -66,6 +125,7 @@
     border-radius: 5px;
     display: none;
     text-align: center;
+    font-family: 'Vazir', Tahoma, sans-serif !important;
 }
 
 .wp-otp-message.success {
@@ -88,6 +148,7 @@
     text-align: center;
     letter-spacing: 5px;
     font-size: 20px !important;
+    direction: ltr;
 }
 
 .wp-otp-resend {
@@ -95,17 +156,20 @@
     margin-top: 15px;
     font-size: 14px;
     color: #666;
+    font-family: 'Vazir', Tahoma, sans-serif !important;
 }
 
 .wp-otp-timer {
     font-weight: bold;
     color: #0073aa;
+    display: inline-block;
+    margin-left: 10px;
 }
 
 .wp-otp-resend-link {
     color: #0073aa;
     text-decoration: none;
-    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .wp-otp-resend-link:hover {
@@ -124,6 +188,7 @@
 .wp-otp-user-info {
     text-align: center;
     padding: 20px;
+    direction: rtl;
 }
 
 .wp-otp-user-avatar {
@@ -138,11 +203,14 @@
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 5px;
+    font-family: 'Vazir', Tahoma, sans-serif !important;
 }
 
 .wp-otp-user-phone {
     color: #666;
     margin-bottom: 15px;
+    direction: ltr;
+    display: inline-block;
 }
 
 .wp-otp-logout-button {
@@ -153,6 +221,7 @@
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    font-family: 'Vazir', Tahoma, sans-serif !important;
 }
 
 .wp-otp-logout-button:hover {
@@ -165,16 +234,7 @@
     color: #666;
     background-color: #f8f9fa;
     border-radius: 5px;
-}
-
-/* RTL Support */
-[dir="rtl"] .wp-otp-input-group {
-    flex-direction: row-reverse;
-}
-
-[dir="rtl"] .wp-otp-resend-link {
-    margin-left: 0;
-    margin-right: 10px;
+    font-family: 'Vazir', Tahoma, sans-serif !important;
 }
 
 /* Responsive */

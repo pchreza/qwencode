@@ -28,6 +28,7 @@ require_once WP_OTP_LOGIN_PLUGIN_DIR . 'includes/class-otp-handler.php';
 require_once WP_OTP_LOGIN_PLUGIN_DIR . 'includes/class-user-authentication.php';
 require_once WP_OTP_LOGIN_PLUGIN_DIR . 'includes/class-admin-settings.php';
 require_once WP_OTP_LOGIN_PLUGIN_DIR . 'includes/class-elementor-widgets.php';
+require_once WP_OTP_LOGIN_PLUGIN_DIR . 'includes/class-shortcodes.php';
 
 // Initialize plugin components
 function wp_otp_login_init() {
