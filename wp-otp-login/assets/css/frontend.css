@@ -1,0 +1,190 @@
+/**
+ * Frontend Styles for OTP Login Forms
+ */
+
+.wp-otp-login-form,
+.wp-otp-register-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.wp-otp-form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.wp-otp-input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.wp-otp-input-group input {
+    flex: 1;
+    min-width: 200px;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.wp-otp-input-group input:focus {
+    outline: none;
+    border-color: #0073aa;
+}
+
+.wp-otp-button {
+    padding: 12px 25px;
+    background-color: #0073aa;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.wp-otp-button:hover:not(:disabled) {
+    background-color: #005a87;
+}
+
+.wp-otp-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.wp-otp-message {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    display: none;
+    text-align: center;
+}
+
+.wp-otp-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.wp-otp-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.wp-otp-step {
+    margin-bottom: 20px;
+}
+
+.wp-otp-code-input {
+    text-align: center;
+    letter-spacing: 5px;
+    font-size: 20px !important;
+}
+
+.wp-otp-resend {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #666;
+}
+
+.wp-otp-timer {
+    font-weight: bold;
+    color: #0073aa;
+}
+
+.wp-otp-resend-link {
+    color: #0073aa;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.wp-otp-resend-link:hover {
+    text-decoration: underline;
+}
+
+.wp-otp-name-fields {
+    margin-bottom: 15px;
+}
+
+.wp-otp-name-fields .wp-otp-input-group {
+    margin-bottom: 10px;
+}
+
+/* User Info Widget */
+.wp-otp-user-info {
+    text-align: center;
+    padding: 20px;
+}
+
+.wp-otp-user-avatar {
+    margin-bottom: 15px;
+}
+
+.wp-otp-user-avatar img {
+    border-radius: 50%;
+}
+
+.wp-otp-user-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.wp-otp-user-phone {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.wp-otp-logout-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.wp-otp-logout-button:hover {
+    background-color: #c82333;
+}
+
+.wp-otp-not-logged-in {
+    padding: 20px;
+    text-align: center;
+    color: #666;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+/* RTL Support */
+[dir="rtl"] .wp-otp-input-group {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .wp-otp-resend-link {
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .wp-otp-input-group {
+        flex-direction: column;
+    }
+    
+    .wp-otp-input-group input,
+    .wp-otp-button {
+        width: 100%;
+    }
+}
