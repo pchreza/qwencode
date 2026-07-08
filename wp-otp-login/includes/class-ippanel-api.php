@@ -199,6 +199,7 @@ class WP_OTP_Login_IPPanel_API {
     
     /**
      * Check IPPanel credit balance
+     * According to latest IPPanel documentation
      * 
      * @return array|false Balance information or false on failure
      */
@@ -207,28 +208,45 @@ class WP_OTP_Login_IPPanel_API {
             return false;
         }
         
-        $response = wp_remote_get('https://api.ippanel.com/api/v1/accounts/credit', array(
+        // Latest IPPanel API endpoint for account info including credit
+        $response = wp_remote_get('https://api.ippanel.com/api/v1/accounts', array(
             'headers' => array(
-                'Authorization' => 'AccessKey ' . $this->api_key
+                'Authorization' => 'AccessKey ' . $this->api_key,
+                'Content-Type' => 'application/json'
             ),
             'timeout' => 10,
             'sslverify' => true
         ));
         
         if (is_wp_error($response)) {
+            error_log('WP OTP Login - IPPanel Balance Error: ' . $response->get_error_message());
             return false;
         }
         
         $status_code = wp_remote_retrieve_response_code($response);
         $body = json_decode(wp_remote_retrieve_body($response), true);
         
-        if ($status_code === 200 && isset($body['credit'])) {
-            return array(
-                'credit' => floatval($body['credit']),
-                'currency' => isset($body['currency']) ? $body['currency'] : 'IRR'
-            );
+        // Log response for debugging
+        error_log('WP OTP Login - IPPanel Balance Response: ' . print_r($body, true));
+        
+        if ($status_code === 200) {
+            // IPPanel returns account info with 'credit' field
+            if (isset($body['credit'])) {
+                return array(
+                    'credit' => floatval($body['credit']),
+                    'currency' => isset($body['currency']) ? $body['currency'] : 'IRR'
+                );
+            }
+            // Some versions return in 'account' object
+            if (isset($body['account']['credit'])) {
+                return array(
+                    'credit' => floatval($body['account']['credit']),
+                    'currency' => isset($body['account']['currency']) ? $body['account']['currency'] : 'IRR'
+                );
+            }
         }
         
+        error_log('WP OTP Login - IPPanel Balance Failed: Status ' . $status_code);
         return false;
     }
     
