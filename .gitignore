@@ -1,0 +1,31 @@
+```
+# WordPress specific
+wp-content/plugins/wp-otp-login/assets/css/*.css.map
+wp-content/plugins/wp-otp-login/assets/js/*.js.map
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/
+vendor/
+
+# Environment
+.env
+.env.local
+.env.*
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build artifacts
+build/
+dist/
+*.min.js
+*.min.css
+```
