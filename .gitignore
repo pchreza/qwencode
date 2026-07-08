@@ -1,31 +1,28 @@
 ```
-# WordPress specific
-wp-content/plugins/wp-otp-login/assets/css/*.css.map
-wp-content/plugins/wp-otp-login/assets/js/*.js.map
+# Compiled and build artifacts
+*.pyc
+__pycache__/
+
+# Dependencies
+vendor/
+node_modules/
+
+# Logs and temp files
 *.log
 *.tmp
 *.swp
-.DS_Store
-Thumbs.db
-
-# Dependencies
-node_modules/
-vendor/
 
 # Environment
 .env
 .env.local
-.env.*
+*.env.*
 
-# Editor
+# Editors
 .vscode/
 .idea/
-*.swp
-*.swo
 
-# Build artifacts
-build/
-dist/
-*.min.js
-*.min.css
+# WordPress specific
+wp-content/cache/
+*.sql
+wp-config.php
 ```
